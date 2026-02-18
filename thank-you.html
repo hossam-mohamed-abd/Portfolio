@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Hossam Mohamed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body { background: #000; }
+        .glow { box-shadow: 0 0 40px rgba(139, 92, 246, 0.3); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex items-center justify-center px-4">
+
+    <!-- Stars Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute w-1 h-1 bg-white rounded-full opacity-70" style="top:10%; left:20%;"></div>
+        <div class="absolute w-1 h-1 bg-white rounded-full opacity-50" style="top:25%; left:75%;"></div>
+        <div class="absolute w-1 h-1 bg-purple-400 rounded-full opacity-60" style="top:60%; left:10%;"></div>
+        <div class="absolute w-1 h-1 bg-white rounded-full opacity-40" style="top:80%; left:85%;"></div>
+        <div class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-60" style="top:40%; left:50%;"></div>
+        <div class="absolute w-2 h-2 bg-purple-500 rounded-full opacity-30" style="top:15%; left:60%;"></div>
+        <div class="absolute w-1 h-1 bg-white rounded-full opacity-50" style="top:70%; left:40%;"></div>
+    </div>
+
+    <div id="card" class="relative text-center max-w-lg w-full p-10 rounded-3xl bg-gradient-to-br from-purple-600/10 to-blue-900/10 border border-purple-500/20 glow">
+
+        <!-- Icon -->
+        <div class="float mb-6 inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 shadow-lg shadow-purple-900/50">
+            <i class="fas fa-paper-plane text-4xl text-white"></i>
+        </div>
+
+        <!-- Text -->
+        <h1 class="text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Thank You!
+        </h1>
+        <p class="text-gray-300 text-lg mb-2">Your message has been received 🎉</p>
+        <p class="text-gray-500 text-sm mb-8">I'll get back to you as soon as possible. I appreciate you reaching out!</p>
+
+        <!-- Divider -->
+        <div class="w-16 h-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full mx-auto mb-8"></div>
+
+        <!-- Social -->
+        <p class="text-gray-400 text-sm mb-4">Meanwhile, feel free to connect with me</p>
+        <div class="flex justify-center gap-4 mb-8">
+            <a href="https://github.com/hossam-mohamed-abd" target="_blank"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-purple-600/30 transition transform hover:scale-110">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-blue-600/30 transition transform hover:scale-110">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/Hossam2512es" target="_blank"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-blue-500/30 transition transform hover:scale-110">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+
+        <!-- Back Button -->
+        <a href="index.html"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold hover:opacity-90 hover:scale-105 transform transition shadow-lg shadow-purple-900/40">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+
+    </div>
+
+    <script>
+        gsap.from("#card", { opacity: 0, y: 60, duration: 1, ease: "power3.out" });
+    </script>
+
+</body>
+</html>
