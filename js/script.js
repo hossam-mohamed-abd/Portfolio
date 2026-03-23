@@ -113,3 +113,52 @@ setInterval(() => {
         qubacxSlide.style.opacity = '1';
     }, 350);
 }, 2000);
+
+
+
+
+
+
+
+// SnovaVerse Slider
+const snovaImages = Array.from({ length: 11 }, (_, i) => `assets/images/SnovaVerse/${i + 1}.jpeg`);
+let snovaIndex = 0;
+const snovaSlide = document.getElementById('snova-slide');
+setInterval(() => {
+    snovaSlide.style.opacity = '0';
+    setTimeout(() => {
+        snovaIndex = (snovaIndex + 1) % snovaImages.length;
+        snovaSlide.src = snovaImages[snovaIndex];
+        snovaSlide.style.opacity = '1';
+    }, 350);
+}, 2000);
+
+// Psychology Slider
+const psychImages = Array.from({ length: 14 }, (_, i) => `assets/images/Psychology/(${i + 1}).jpeg`);
+let psychIndex = 0;
+const psychSlide = document.getElementById('psych-slide');
+setInterval(() => {
+    psychSlide.style.opacity = '0';
+    setTimeout(() => {
+        psychIndex = (psychIndex + 1) % psychImages.length;
+        psychSlide.src = psychImages[psychIndex];
+        psychSlide.style.opacity = '1';
+    }, 350);
+}, 3000);
+
+// GDG AOU Slider
+const gdgImages = Array.from({ length: 9 }, (_, i) => `assets/images/GDG/(${i + 1}).jpeg`);
+let gdgIndex = 0;
+const gdgSlide = document.getElementById('gdg-slide');
+setInterval(() => {
+    gdgSlide.style.opacity = '0';
+    setTimeout(() => {
+        gdgIndex = (gdgIndex + 1) % gdgImages.length;
+        gdgSlide.src = gdgImages[gdgIndex];
+        gdgSlide.style.opacity = '1';
+    }, 350);
+}, 4000);
+
+
+
+
