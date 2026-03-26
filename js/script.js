@@ -1,4 +1,4 @@
-// ===== Navbar, Menu Highlight & Scroll Spy =====
+
 const navbar = document.getElementById("navbar");
 const menuItems = document.querySelectorAll('#navbar ul li');
 const highlight = document.getElementById('highlight');
@@ -7,10 +7,10 @@ const aboutSection = document.getElementById("about");
 
 navbar.classList.add('hidden');
 
-// Map menu items to sections
+
 const sections = Array.from(menuItems).map(item => document.querySelector(item.querySelector('a').getAttribute('href')));
 
-// Move highlight to target menu item
+
 const moveHighlight = target => {
     const rect = target.getBoundingClientRect();
     const parentRect = target.parentElement.getBoundingClientRect();
@@ -18,27 +18,27 @@ const moveHighlight = target => {
     highlight.style.transform = `translateX(${rect.left - parentRect.left}px)`;
 };
 
-// Initialize highlight on first item
+
 if (menuItems.length) moveHighlight(menuItems[0]);
 
-// Hover events for menu
+
 menuItems.forEach(item => item.addEventListener('mouseenter', () => moveHighlight(item)));
 
-// Reset highlight to first item on mouse leave
+
 menuItems[0].parentElement.addEventListener('mouseleave', () => moveHighlight(menuItems[0]));
 
-// ===== Scroll Event =====
+
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const scrollMiddle = scrollY + window.innerHeight / 2;
 
-    // Navbar visibility after 50px scroll
+    
     navbar.classList.toggle('hidden', scrollY <= 50);
 
-    // Back-to-top button visibility
+    
     backToTop?.classList.toggle('hidden', scrollY < aboutSection.offsetTop - 100);
 
-    // Scroll spy highlight
+    
     sections.forEach((section, index) => {
         if (section.offsetTop <= scrollMiddle && section.offsetTop + section.offsetHeight > scrollMiddle) {
             moveHighlight(menuItems[index]);
@@ -46,7 +46,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ===== VANTA Globe =====
+
 VANTA.GLOBE({
     el: "#vanta-globe",
     mouseControls: true,
@@ -60,7 +60,7 @@ VANTA.GLOBE({
     backgroundColor: 0x000000
 });
 
-// ===== Typed.js =====
+
 new Typed("#typed-text", {
     strings: ["I build scalable Angular applications", "I craft responsive & modern UIs", "I explore Data Engineering & AI", "I learn Cybersecurity & secure the web"],
     typeSpeed: 50,
@@ -72,7 +72,7 @@ new Typed("#typed-text", {
 
 
 
-// GEM Slider
+
 
 const gemImages = Array.from({ length: 7 }, (_, i) => `assets/images/GEM/${i + 1}.png`);
 let gemIndex = 0;
@@ -88,7 +88,7 @@ setInterval(() => {
 }, 3000);
 
 
-// AskTrack Slider
+
 const askImages = Array.from({ length: 4 }, (_, i) => `assets/images/askAi/${i + 1}.png`);
 let askIndex = 0;
 const askSlide = document.getElementById('ask-slide');
@@ -101,7 +101,7 @@ setInterval(() => {
     }, 350);
 }, 2000);
 
-// QUBACX Slider
+
 const qubacxImages = Array.from({ length: 2 }, (_, i) => `assets/images/qubacx/${i + 1}.png`);
 let qubacxIndex = 0;
 const qubacxSlide = document.getElementById('qubacx-slide');
@@ -120,7 +120,7 @@ setInterval(() => {
 
 
 
-// SnovaVerse Slider
+
 const snovaImages = Array.from({ length: 11 }, (_, i) => `assets/images/SnovaVerse/${i + 1}.jpeg`);
 let snovaIndex = 0;
 const snovaSlide = document.getElementById('snova-slide');
@@ -133,7 +133,7 @@ setInterval(() => {
     }, 350);
 }, 2000);
 
-// Psychology Slider
+
 const psychImages = Array.from({ length: 14 }, (_, i) => `assets/images/Psychology/(${i + 1}).jpeg`);
 let psychIndex = 0;
 const psychSlide = document.getElementById('psych-slide');
@@ -146,7 +146,7 @@ setInterval(() => {
     }, 350);
 }, 3000);
 
-// GDG AOU Slider
+
 const gdgImages = Array.from({ length: 9 }, (_, i) => `assets/images/GDG/(${i + 1}).jpeg`);
 let gdgIndex = 0;
 const gdgSlide = document.getElementById('gdg-slide');

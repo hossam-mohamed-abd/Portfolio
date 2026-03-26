@@ -1,32 +1,14 @@
-/**
- * ╔══════════════════════════════════════════════════════╗
- * ║          Portfolio Protection Script                 ║
- * ║          © Hossam Mohamed – All Rights Reserved      ║
- * ╚══════════════════════════════════════════════════════╝
- *
- * الحمايات المضمّنة:
- *  1. منع كليك يمين
- *  2. منع اختصارات لوحة المفاتيح (F12 / Ctrl+Shift+I/J/C/U / Ctrl+S / Ctrl+A)
- *  3. كشف DevTools عبر فارق الحجم + timing trick
- *  4. كشف التلاعب بالـ DOM (MutationObserver) – لو اسم "Hossam Mohamed" اتغيّر
- *  5. Anti-debugger loop
- *  6. Console poisoning – تشويش أي شخص يفتح الـ Console
- *  7. شاشة تحذير بدل إيقاف الصفحة فجأة
- */
+
 
 (function () {
     "use strict";
 
-    /* ─────────────────────────────────────────
-       0.  النص المحمي الذي يجب أن يبقى كما هو
-    ───────────────────────────────────────── */
+    
     const PROTECTED_NAME = "Hossam Mohamed";
 
-    /* ─────────────────────────────────────────
-       HELPER – عرض شاشة التحذير وتجميد الصفحة
-    ───────────────────────────────────────── */
+    
     function showWarningAndFreeze(reason) {
-        // أوقف أي تحديث للـ DOM
+        
         document.documentElement.style.overflow = "hidden";
 
         const overlay = document.createElement("div");
@@ -62,59 +44,52 @@
     `;
         document.body.appendChild(overlay);
 
-        // امنع أي تفاعل مع باقي الصفحة
+        
         document.addEventListener("keydown", (e) => e.preventDefault(), true);
         document.addEventListener("mousedown", (e) => e.preventDefault(), true);
     }
 
-    /* ─────────────────────────────────────────
-       1.  منع كليك يمين
-    ───────────────────────────────────────── */
+    
     document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
         return false;
     });
 
-    /* ─────────────────────────────────────────
-       2.  منع اختصارات لوحة المفاتيح
-    ───────────────────────────────────────── */
+    
     document.addEventListener("keydown", function (e) {
         const key = e.key ? e.key.toLowerCase() : "";
         const ctrl = e.ctrlKey || e.metaKey;
         const shift = e.shiftKey;
 
-        // F12
+        
         if (e.keyCode === 123) { e.preventDefault(); return false; }
 
-        // Ctrl/Cmd combos
+        
         if (ctrl) {
-            // Ctrl+U  (View Source)
+            
             if (key === "u") {
                 e.preventDefault();
                 window.open("https://www.linkedin.com/in/hossam-mohamed-abd/", "_blank");
                 return false;
             }
-            // Ctrl+S  (Save Page)
+            
             if (key === "s") { e.preventDefault(); return false; }
-            // Ctrl+A  (Select All)
+            
             if (key === "a") { e.preventDefault(); return false; }
-            // Ctrl+C  (Copy) – نمنع النسخ
+            
             if (key === "c") { e.preventDefault(); return false; }
-            // Ctrl+Shift+I  (Inspector)
+            
             if (shift && key === "i") { e.preventDefault(); return false; }
-            // Ctrl+Shift+J  (Console)
+            
             if (shift && key === "j") { e.preventDefault(); return false; }
-            // Ctrl+Shift+C  (Element picker)
+            
             if (shift && key === "c") { e.preventDefault(); return false; }
-            // Ctrl+P  (Print)
+            
             if (key === "p") { e.preventDefault(); return false; }
         }
     });
 
-    /* ─────────────────────────────────────────
-       3.  كشف DevTools عبر فارق الحجم
-           + debugger timing trick
-    ───────────────────────────────────────── */
+    
     const DEVTOOLS_WIDTH_THRESHOLD = 160;
     const DEVTOOLS_HEIGHT_THRESHOLD = 160;
     let devToolsOpen = false;
@@ -132,11 +107,11 @@
         }
     }
 
-    // Timing trick: debugger statement يبطئ التنفيذ لما DevTools مفتوح
+    
     function checkDevToolsByTiming() {
         const start = performance.now();
-        // eslint-disable-next-line no-debugger
-        debugger; // linter knows – this is intentional protection
+        
+        debugger; 
         const elapsed = performance.now() - start;
         if (elapsed > 100) {
             if (!devToolsOpen) {
@@ -149,14 +124,10 @@
     setInterval(checkDevToolsBySize, 800);
     setInterval(checkDevToolsByTiming, 1500);
 
-    /* ─────────────────────────────────────────
-       4.  Anti-tamper – MutationObserver
-           لو حد غيّر اسم "Hossam Mohamed"
-           في أي عنصر بالـ DOM
-    ───────────────────────────────────────── */
+    
     const observer = new MutationObserver(function (mutations) {
         for (const mutation of mutations) {
-            // فحص إضافة عناصر جديدة
+            
             if (mutation.type === "childList") {
                 mutation.addedNodes.forEach(function (node) {
                     if (node.nodeType === Node.TEXT_NODE) {
@@ -173,15 +144,15 @@
                 });
             }
 
-            // فحص تغيير محتوى النصوص
+            
             if (mutation.type === "characterData") {
                 checkNodeText(mutation.target);
             }
 
-            // فحص تغيير الـ attributes
+            
             if (mutation.type === "attributes") {
                 const el = mutation.target;
-                // لو حد عدّل title أو alt أو placeholder
+                
                 ["title", "alt", "placeholder", "content", "value"].forEach(function (attr) {
                     const val = el.getAttribute(attr);
                     if (val && looksLikeTampered(val)) {
@@ -199,15 +170,9 @@
         }
     }
 
-    /**
-     * يكشف لو نص يحتوي على "Hossam Mohamed" لكن بعد التحريف:
-     *   – الاسم مش موجود خالص رغم إن العنصر كان يحتويه
-     *   – أو فيه HTML injection في مكانه
-     * الفكرة: نسجّل fingerprint لكل عنصر يحتوي على الاسم عند أول تحميل
-     * ثم نقارنه
-     */
+    
     function looksLikeTampered(text) {
-        // لو فيه script أو on-event أو data: في نص عادي
+        
         const dangerPatterns = [
             /<script/i,
             /on\w+\s*=/i,
@@ -218,7 +183,7 @@
         return dangerPatterns.some((rx) => rx.test(text));
     }
 
-    // سجّل fingerprints للعناصر التي تحتوي على الاسم المحمي
+    
     const nameFingerprints = new Map();
 
     function buildFingerprints() {
@@ -238,14 +203,14 @@
 
     function verifyFingerprints() {
         nameFingerprints.forEach(function (original, node) {
-            // لو العنصر اتحذف أو اتغيّر
+            
             if (!document.contains(node) || node.textContent.trim() !== original) {
                 showWarningAndFreeze("DOM tampering detected. Content integrity check failed.");
             }
         });
     }
 
-    // ابدأ بعد اكتمال الصفحة
+    
     window.addEventListener("load", function () {
         buildFingerprints();
 
@@ -260,14 +225,10 @@
         setInterval(verifyFingerprints, 1000);
     });
 
-    /* ─────────────────────────────────────────
-       5.  Console Poisoning
-           لو حد فتح الـ Console هيشوف رسالة تحذير
-           بدل ما يقدر يشتغل
-    ───────────────────────────────────────── */
+    
     const _warn = console.warn.bind(console);
 
-    // طغيان الـ console بعمليات لا تنتهي لو حد حاول يشيل الحماية
+    
     const consolePoisonMsg = `
 %c⛔ STOP!
 %cThis browser feature is intended for developers.
@@ -279,7 +240,7 @@ This site is protected by © ${PROTECTED_NAME}.
         "color:#94a3b8;font-size:1rem;"
     );
 
-    // Override console methods لإرباك أي شخص يحاول استخدام الـ console
+    
     ["log", "info", "warn", "error", "dir", "table"].forEach(function (method) {
         const original = console[method].bind(console);
         console[method] = function (...args) {
@@ -292,17 +253,13 @@ This site is protected by © ${PROTECTED_NAME}.
         };
     });
 
-    /* ─────────────────────────────────────────
-       6.  منع الـ Print
-    ───────────────────────────────────────── */
+    
     window.addEventListener("beforeprint", function (e) {
         e.preventDefault();
         showWarningAndFreeze("Printing is disabled for this protected page.");
     });
 
-    /* ─────────────────────────────────────────
-       7.  منع تحديد النص والـ Drag
-    ───────────────────────────────────────── */
+    
     document.addEventListener("selectstart", function (e) {
         e.preventDefault();
         return false;
@@ -313,17 +270,14 @@ This site is protected by © ${PROTECTED_NAME}.
         return false;
     });
 
-    /* ─────────────────────────────────────────
-       8.  إخفاء الكود من الـ toString
-           (يصعّب الـ reverse engineering)
-    ───────────────────────────────────────── */
+    
     (function antiReflection() {
         const _toString = Function.prototype.toString;
         Function.prototype.toString = function () {
-            // لو حد حاول يطبع source code لأي function من الموقع
+            
             return "function() { [native code] }";
         };
-        // نحمي الـ toString نفسها
+        
         Function.prototype.toString.toString = function () {
             return "function() { [native code] }";
         };

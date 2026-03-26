@@ -1,11 +1,8 @@
-/* ═══════════════════════════════════════════════════════════
-   PORTFOLIO — COMPLETE CSS
-   Hossam Mohamed | Angular Frontend Developer
-   ═══════════════════════════════════════════════════════════ */
 
-/* ── CSS Variables ─────────────────────────────────────── */
+
+
 :root {
-    /* Backgrounds */
+    
     --bg-primary:        #0a0a0f;
     --bg-secondary:      #0f0f1a;
     --bg-surface:        #12101f;
@@ -13,13 +10,13 @@
     --bg-card-solid:     #1a1430;
     --bg-card-hover:     rgba(35, 26, 74, 0.7);
 
-    /* Text */
+    
     --text-primary:      #f0eeff;
     --text-secondary:    #c4b8f0;
     --text-muted:        #9b8ec4;
     --text-disabled:     #5a4f7a;
 
-    /* Accents */
+    
     --accent-purple:     #7c3aed;
     --accent-purple-h:   #9155f5;
     --accent-purple-sub: rgba(124, 58, 237, 0.15);
@@ -30,20 +27,20 @@
     --accent-green:      #22c55e;
     --accent-green-sub:  rgba(34, 197, 94, 0.15);
 
-    /* Nav */
+    
     --nav-bg:            rgba(10, 10, 15, 0.85);
     --nav-border:        rgba(124, 58, 237, 0.15);
 
-    /* Cards */
+    
     --card-border:       rgba(124, 58, 237, 0.2);
     --card-border-h:     rgba(124, 58, 237, 0.45);
 
-    /* Shadows */
+    
     --shadow-purple:     0 20px 60px rgba(124, 58, 237, 0.2);
     --shadow-blue:       0 20px 60px rgba(59, 130, 246, 0.15);
     --shadow-card:       0 8px 32px rgba(0, 0, 0, 0.4);
 
-    /* Gradients */
+    
     --grad-brand:        linear-gradient(135deg, #7c3aed, #3b82f6);
     --grad-card-purple:  linear-gradient(135deg, rgba(124,58,237,0.1), rgba(26,20,60,0.3));
     --grad-card-blue:    linear-gradient(135deg, rgba(59,130,246,0.1), rgba(30,58,138,0.15));
@@ -51,7 +48,7 @@
     --grad-hero:         linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 60%, #110d24 100%);
     --grad-projects:     linear-gradient(135deg, #000 0%, #111827 50%, #000 100%);
 
-    /* Motion */
+    
     --dur-fast:   150ms;
     --dur-base:   250ms;
     --dur-smooth: 300ms;
@@ -59,7 +56,7 @@
     --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    /* Radius */
+    
     --radius-sm:   6px;
     --radius-md:   10px;
     --radius-lg:   14px;
@@ -67,7 +64,7 @@
     --radius-full: 9999px;
 }
 
-/* ── Light Mode ─────────────────────────────────────────── */
+
 html.light {
     --bg-primary:        #f4f2ff;
     --bg-secondary:      #eae7ff;
@@ -107,7 +104,7 @@ html.light {
     --grad-projects:     linear-gradient(135deg, #f4f2ff 0%, #eae7ff 50%, #e8e3ff 100%);
 }
 
-/* ── Base ───────────────────────────────────────────────── */
+
 html { scroll-behavior: smooth; }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -120,7 +117,7 @@ body {
     transition: background-color var(--dur-smooth) ease, color var(--dur-smooth) ease;
 }
 
-/* ── Scroll-bar ─────────────────────────────────────────── */
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-secondary); }
 ::-webkit-scrollbar-thumb {
@@ -129,9 +126,7 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-purple-h); }
 
-/* ══════════════════════════════════════════════════════════
-   REVEAL ANIMATION
-══════════════════════════════════════════════════════════ */
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -146,9 +141,7 @@ body {
     animation: fadeInUp var(--dur-reveal) var(--ease-out) both;
 }
 
-/* ══════════════════════════════════════════════════════════
-   BRAND GRADIENT TEXT
-══════════════════════════════════════════════════════════ */
+
 .logo-text {
     background: var(--grad-brand);
     -webkit-background-clip: text;
@@ -156,9 +149,7 @@ body {
     background-clip: text;
 }
 
-/* ══════════════════════════════════════════════════════════
-   NAVBAR
-══════════════════════════════════════════════════════════ */
+
 #navbar {
     background: var(--nav-bg);
     backdrop-filter: blur(16px);
@@ -176,7 +167,7 @@ body {
     pointer-events: none;
 }
 
-/* Nav menu wrapper */
+
 .nav-menu-wrap {
     background: rgba(255, 255, 255, 0.07);
 }
@@ -184,7 +175,7 @@ html.light .nav-menu-wrap {
     background: rgba(109, 40, 217, 0.07);
 }
 
-/* Highlight bar */
+
 .nav-highlight {
     background: rgba(124, 58, 237, 0.3);
     transition: all var(--dur-base) ease;
@@ -193,7 +184,7 @@ html.light .nav-highlight {
     background: rgba(109, 40, 217, 0.15);
 }
 
-/* Nav items */
+
 .nav-item a {
     color: var(--text-muted);
     transition: color var(--dur-fast) ease;
@@ -205,7 +196,7 @@ html.light .nav-highlight {
     color: var(--text-primary);
 }
 
-/* Theme toggle button */
+
 .theme-btn {
     border: 1px solid var(--accent-purple-b);
     background: var(--accent-purple-sub);
@@ -218,7 +209,7 @@ html.light .nav-highlight {
     transform: rotate(15deg);
 }
 
-/* Hamburger */
+
 .hamburger-btn {
     background: var(--accent-purple-sub);
     border: 1px solid var(--accent-purple-b);
@@ -237,7 +228,7 @@ html.light .nav-highlight {
 .hamburger-btn.open .ham-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger-btn.open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* Mobile menu */
+
 .mobile-menu {
     background: var(--nav-bg);
     border-top: 1px solid var(--nav-border);
@@ -253,9 +244,7 @@ html.light .nav-highlight {
     padding-left: 1.5rem;
 }
 
-/* ══════════════════════════════════════════════════════════
-   HERO SECTION
-══════════════════════════════════════════════════════════ */
+
 #home { background: var(--bg-primary); }
 
 .hero-overlay {
@@ -286,7 +275,7 @@ html.light .hero-badge {
 
 .hero-desc { color: var(--text-muted); }
 
-/* CTA Buttons */
+
 .btn-outline-purple {
     border: 2px solid var(--accent-purple);
     color: var(--accent-purple-h);
@@ -331,7 +320,7 @@ html.light .hero-badge {
     box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
 }
 
-/* Social Icons */
+
 .social-icon {
     color: var(--text-muted);
     transition: all var(--dur-base) var(--ease-bounce);
@@ -346,13 +335,11 @@ html.light .hero-badge {
 .social-icon.social-reddit:hover    { color: #ff4500; }
 .social-icon.social-instagram:hover { color: #e1306c; }
 
-/* Scroll cue */
+
 .scroll-cue { color: var(--text-muted); }
 .scroll-cue:hover { color: var(--accent-purple-h); }
 
-/* ══════════════════════════════════════════════════════════
-   SKILLS SECTION
-══════════════════════════════════════════════════════════ */
+
 .skills-section {
     background: var(--bg-secondary);
     position: relative;
@@ -369,7 +356,7 @@ html.light .hero-badge {
 
 .skills-subtitle { color: var(--text-muted); }
 
-/* Profile image */
+
 .profile-img-wrap { display: inline-block; }
 .profile-img-glow {
     background: var(--grad-brand);
@@ -396,7 +383,7 @@ html.light .hero-badge {
     50%       { box-shadow: 0 0 14px var(--accent-green), 0 0 6px var(--accent-green); }
 }
 
-/* Skill Badges */
+
 .skill-badge {
     display: inline-flex;
     align-items: center;
@@ -426,9 +413,7 @@ html.light .skill-badge--outline {
     color: var(--accent-purple) !important;
 }
 
-/* ══════════════════════════════════════════════════════════
-   ABOUT SECTION
-══════════════════════════════════════════════════════════ */
+
 .about-section {
     background: var(--bg-primary);
     position: relative;
@@ -443,7 +428,7 @@ html.light .skill-badge--outline {
 
 .section-subtitle { color: var(--text-muted); }
 
-/* Feature Cards */
+
 .feature-card {
     padding: 1.5rem;
     border-radius: var(--radius-lg);
@@ -486,7 +471,7 @@ html.light .feature-card--green { border-color: rgba(22, 163, 74, 0.2); }
     box-shadow: 0 20px 60px rgba(34, 197, 94, 0.12);
 }
 
-/* Feature Icon */
+
 .feature-icon {
     width: 52px; height: 52px;
     display: flex; align-items: center; justify-content: center;
@@ -511,7 +496,7 @@ html.light .feature-card--green { border-color: rgba(22, 163, 74, 0.2); }
 
 .card-desc { color: var(--text-muted); }
 
-/* Info Cards */
+
 .info-card {
     padding: 1.5rem;
     border-radius: var(--radius-md);
@@ -539,9 +524,7 @@ html.light .feature-card--green { border-color: rgba(22, 163, 74, 0.2); }
 }
 .info-card__body { color: var(--text-secondary); }
 
-/* ══════════════════════════════════════════════════════════
-   PROJECTS SECTION
-══════════════════════════════════════════════════════════ */
+
 .projects-section {
     background: var(--bg-secondary);
     position: relative;
@@ -552,7 +535,7 @@ html.light .feature-card--green { border-color: rgba(22, 163, 74, 0.2); }
 }
 html.light .projects-overlay { opacity: 0.3; }
 
-/* Project Card */
+
 .project-card {
     border-radius: var(--radius-lg);
     display: flex;
@@ -572,7 +555,7 @@ html.light .projects-overlay { opacity: 0.3; }
     box-shadow: var(--shadow-purple);
 }
 
-/* Project image */
+
 .project-img-wrap {
     width: 100%;
     height: 220px;
@@ -588,7 +571,7 @@ html.light .projects-overlay { opacity: 0.3; }
 }
 .project-card:hover .project-img { transform: scale(1.06); }
 
-/* Project badge */
+
 .project-badge {
     position: absolute;
     top: 10px; right: 10px;
@@ -622,7 +605,7 @@ html.light .projects-overlay { opacity: 0.3; }
 }
 .project-card:hover .project-link { color: var(--accent-purple-h); }
 
-/* Tech tags */
+
 .tech-tag {
     display: inline-block;
     padding: 3px 10px;
@@ -644,9 +627,7 @@ html.light .tech-tag {
     border-color: var(--accent-purple);
 }
 
-/* ══════════════════════════════════════════════════════════
-   CONTACT SECTION
-══════════════════════════════════════════════════════════ */
+
 .contact-section {
     background: var(--bg-primary);
     position: relative;
@@ -657,7 +638,7 @@ html.light .tech-tag {
 }
 html.light .contact-overlay { opacity: 0.25; }
 
-/* Contact info card */
+
 .contact-info-card {
     padding: 2rem;
     border-radius: var(--radius-lg);
@@ -668,7 +649,7 @@ html.light .contact-overlay { opacity: 0.25; }
 }
 .contact-info-card:hover { box-shadow: var(--shadow-purple); }
 
-/* Contact form card */
+
 .contact-form-card {
     padding: 2rem;
     border-radius: var(--radius-lg);
@@ -679,7 +660,7 @@ html.light .contact-overlay { opacity: 0.25; }
 }
 .contact-form-card:hover { box-shadow: var(--shadow-blue); }
 
-/* Contact icon */
+
 .contact-icon-wrap {
     width: 48px; height: 48px;
     display: flex; align-items: center; justify-content: center;
@@ -703,7 +684,7 @@ html.light .contact-overlay { opacity: 0.25; }
 }
 .contact-info-link:hover { color: var(--accent-blue-h); }
 
-/* Contact social */
+
 .contact-social-icon {
     width: 40px; height: 40px;
     display: flex; align-items: center; justify-content: center;
@@ -722,7 +703,7 @@ html.light .contact-social-icon { background: rgba(109, 40, 217, 0.06); }
 .contact-social-icon--linkedin:hover { background: rgba(0, 119, 181, 0.15); color: #0077b5; }
 .contact-social-icon--facebook:hover { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
 
-/* Form elements */
+
 .form-label { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
 
 .form-input {
@@ -746,7 +727,7 @@ html.light .form-input {
 }
 .form-input:hover:not(:focus) { border-color: var(--accent-purple-b); }
 
-/* Submit button */
+
 .btn-submit {
     background: var(--grad-brand);
     color: #fff;
@@ -768,9 +749,7 @@ html.light .form-input {
     transform: translateY(0) scale(0.98);
 }
 
-/* ══════════════════════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════════════════════ */
+
 .footer-section {
     background: var(--bg-surface);
     border-top: 1px solid var(--card-border);
@@ -778,9 +757,7 @@ html.light .form-input {
 .footer-sub  { color: var(--text-muted); font-size: 14px; }
 .footer-copy { color: var(--text-disabled); }
 
-/* ══════════════════════════════════════════════════════════
-   BACK TO TOP
-══════════════════════════════════════════════════════════ */
+
 .back-to-top {
     border: 1px solid rgba(59, 130, 246, 0.3);
     color: var(--accent-blue);
@@ -800,9 +777,7 @@ html.light .form-input {
     pointer-events: auto !important;
 }
 
-/* ══════════════════════════════════════════════════════════
-   SECTION DIVIDERS
-══════════════════════════════════════════════════════════ */
+
 .projects-section::before,
 .contact-section::before {
     content: '';
@@ -813,9 +788,7 @@ html.light .form-input {
     z-index: 1;
 }
 
-/* ══════════════════════════════════════════════════════════
-   LIGHT MODE — TAILWIND OVERRIDES
-══════════════════════════════════════════════════════════ */
+
 html.light body                 { background-color: var(--bg-primary); }
 html.light .text-white          { color: var(--text-primary) !important; }
 html.light .text-gray-300       { color: var(--text-secondary) !important; }
@@ -827,19 +800,17 @@ html.light .from-black          { --tw-gradient-from: var(--bg-primary) !importa
 html.light .via-gray-900        { --tw-gradient-via: var(--bg-secondary) !important; }
 html.light .to-black            { --tw-gradient-to: var(--bg-primary) !important; }
 
-/* Typing cursor color in light mode */
+
 html.light .typed-cursor { color: var(--accent-purple); }
 
-/* ══════════════════════════════════════════════════════════
-   UTILITIES
-══════════════════════════════════════════════════════════ */
-/* Selection highlight */
+
+
 ::selection {
     background: rgba(124, 58, 237, 0.3);
     color: var(--text-primary);
 }
 
-/* Smooth transitions on theme switch */
+
 section, nav, footer, .feature-card, .info-card,
 .project-card, .contact-info-card, .contact-form-card,
 input, textarea, .skill-badge, .tech-tag {
@@ -848,7 +819,7 @@ input, textarea, .skill-badge, .tech-tag {
     transition-timing-function: ease;
 }
 
-/* Focus visible outline for accessibility */
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -857,9 +828,7 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
-/* ══════════════════════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════════════════════ */
+
 @media (max-width: 640px) {
     .hero-badge { font-size: 11px; padding: 4px 12px; }
     .skill-badge { font-size: 11px; padding: 4px 11px; }
