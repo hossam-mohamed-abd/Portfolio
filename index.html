@@ -30,7 +30,8 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,7 +53,7 @@
 </head>
 
 <body class="overflow-x-hidden">
-
+    <script src="js/protection.js"></script>
     <!-- ═══════════════════════════════════════════
          NAVBAR
     ═══════════════════════════════════════════ -->
@@ -66,7 +67,9 @@
 
             <!-- Desktop Menu -->
             <div class="relative hidden md:flex nav-menu-wrap rounded-xl overflow-hidden">
-                <div id="highlight" class="nav-highlight absolute top-0 left-0 h-full rounded-xl transition-all duration-300 ease-in-out"></div>
+                <div id="highlight"
+                    class="nav-highlight absolute top-0 left-0 h-full rounded-xl transition-all duration-300 ease-in-out">
+                </div>
                 <ul class="flex relative z-10 font-medium">
                     <li class="px-6 py-2 cursor-pointer nav-item" data-index="0"><a href="#home">Home</a></li>
                     <li class="px-6 py-2 cursor-pointer nav-item" data-index="1"><a href="#skills">Skills</a></li>
@@ -84,7 +87,9 @@
                 </button>
 
                 <!-- Mobile Hamburger -->
-                <button id="hamburger" class="md:hidden hamburger-btn w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full" aria-label="Menu">
+                <button id="hamburger"
+                    class="md:hidden hamburger-btn w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full"
+                    aria-label="Menu">
                     <span class="ham-line"></span>
                     <span class="ham-line"></span>
                     <span class="ham-line"></span>
@@ -95,11 +100,21 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden hidden px-6 pb-4">
             <ul class="flex flex-col gap-1">
-                <li><a href="#home" class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Home</a></li>
-                <li><a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Skills</a></li>
-                <li><a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">About</a></li>
-                <li><a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Projects</a></li>
-                <li><a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Contact</a></li>
+                <li><a href="#home"
+                        class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Home</a>
+                </li>
+                <li><a href="#skills"
+                        class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Skills</a>
+                </li>
+                <li><a href="#about"
+                        class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">About</a>
+                </li>
+                <li><a href="#projects"
+                        class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Projects</a>
+                </li>
+                <li><a href="#contact"
+                        class="mobile-nav-link block px-4 py-3 rounded-xl font-medium transition-all duration-200">Contact</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -113,7 +128,8 @@
 
         <div class="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10 text-left">
 
-            <span class="hero-badge inline-block py-1.5 px-4 rounded-full text-sm font-medium mb-6 reveal-up" style="animation-delay:.1s">
+            <span class="hero-badge inline-block py-1.5 px-4 rounded-full text-sm font-medium mb-6 reveal-up"
+                style="animation-delay:.1s">
                 Angular Frontend Developer • Data Engineering • Cybersecurity Learner
             </span>
 
@@ -133,42 +149,53 @@
 
             <div class="w-fit reveal-up" style="animation-delay:.55s">
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="#projects" class="btn-outline-purple px-6 py-3 text-center font-semibold rounded-xl transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none group">
+                    <a href="#projects"
+                        class="btn-outline-purple px-6 py-3 text-center font-semibold rounded-xl transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none group">
                         <i class="fas fa-eye mr-2 group-hover:scale-110 transition-transform"></i> View My Work
                     </a>
-                    <a href="#contact" class="btn-outline-purple px-6 py-3 text-center font-semibold rounded-xl transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none group">
-                        <i class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform"></i> Contact Me
+                    <a href="#contact"
+                        class="btn-outline-purple px-6 py-3 text-center font-semibold rounded-xl transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none group">
+                        <i class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform"></i> Contact
+                        Me
                     </a>
                 </div>
                 <div class="flex justify-center mt-4">
                     <a href="assets/cv/HossamMohamedAbdelhakam_CV.pdf" download="Hossam_Mohamed_CV.pdf"
                         class="btn-outline-blue px-6 py-3 text-center font-semibold rounded-xl transition-all duration-300 whitespace-nowrap group">
-                        <i class="fas fa-download mr-2 group-hover:-translate-y-0.5 transition-transform"></i> Download CV
+                        <i class="fas fa-download mr-2 group-hover:-translate-y-0.5 transition-transform"></i> Download
+                        CV
                     </a>
                 </div>
             </div>
 
             <!-- Social Links -->
             <div class="mt-8 flex items-center justify-center space-x-5 reveal-up" style="animation-delay:.65s">
-                <a href="https://github.com/hossam-mohamed-abd" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
+                <a href="https://github.com/hossam-mohamed-abd" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub" class="social-icon">
                     <i class="fab fa-github text-2xl"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon social-linkedin">
+                <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn" class="social-icon social-linkedin">
                     <i class="fab fa-linkedin-in text-2xl"></i>
                 </a>
-                <a href="https://www.facebook.com/Hossam2512es" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon social-facebook">
+                <a href="https://www.facebook.com/Hossam2512es" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook" class="social-icon social-facebook">
                     <i class="fab fa-facebook text-2xl"></i>
                 </a>
-                <a href="https://x.com/Hosam545Mohamed" target="_blank" rel="noopener noreferrer" aria-label="X" class="social-icon">
+                <a href="https://x.com/Hosam545Mohamed" target="_blank" rel="noopener noreferrer" aria-label="X"
+                    class="social-icon">
                     <i class="fab fa-x-twitter text-2xl"></i>
                 </a>
-                <a href="https://www.reddit.com/user/AlarmingTomato968" target="_blank" rel="noopener noreferrer" aria-label="Reddit" class="social-icon social-reddit">
+                <a href="https://www.reddit.com/user/AlarmingTomato968" target="_blank" rel="noopener noreferrer"
+                    aria-label="Reddit" class="social-icon social-reddit">
                     <i class="fab fa-reddit-alien text-2xl"></i>
                 </a>
-                <a href="https://www.instagram.com/hossam_mohamed_abd" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon social-instagram">
+                <a href="https://www.instagram.com/hossam_mohamed_abd" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram" class="social-icon social-instagram">
                     <i class="fab fa-instagram text-2xl"></i>
                 </a>
-                <a href="https://www.threads.net/@hossam_mohamed_abd" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social-icon">
+                <a href="https://www.threads.net/@hossam_mohamed_abd" target="_blank" rel="noopener noreferrer"
+                    aria-label="Threads" class="social-icon">
                     <i class="fab fa-threads text-2xl"></i>
                 </a>
             </div>
@@ -194,7 +221,8 @@
                     <div class="profile-img-glow absolute inset-0 rounded-full scale-110"></div>
                     <img src="assets/images/image3.png" alt="Hossam Mohamed"
                         class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover profile-img shadow-2xl">
-                    <span class="online-dot absolute bottom-3 right-3 w-5 h-5 rounded-full border-2 border-black shadow-md"></span>
+                    <span
+                        class="online-dot absolute bottom-3 right-3 w-5 h-5 rounded-full border-2 border-black shadow-md"></span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 logo-text">Tech Stack</h2>
                 <p class="skills-subtitle max-w-2xl text-center text-base sm:text-lg">
@@ -210,7 +238,8 @@
                 <span class="skill-badge" style="background:#9f1239"><i class="fas fa-database"></i> NgRx</span>
 
                 <!-- Languages -->
-                <span class="skill-badge" style="background:#ca8a04;color:#000"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="skill-badge" style="background:#ca8a04;color:#000"><i class="fab fa-js"></i>
+                    JavaScript</span>
                 <span class="skill-badge" style="background:#2563eb"><i class="fas fa-code"></i> TypeScript</span>
                 <span class="skill-badge" style="background:#1d4ed8"><i class="fab fa-python"></i> Python</span>
                 <span class="skill-badge" style="background:#374151"><i class="fas fa-copyright"></i> C++</span>
@@ -224,18 +253,22 @@
                 <span class="skill-badge" style="background:#ea580c"><i class="fab fa-html5"></i> HTML5</span>
                 <span class="skill-badge" style="background:#3b82f6"><i class="fab fa-css3-alt"></i> CSS3</span>
                 <span class="skill-badge" style="background:#db2777"><i class="fab fa-sass"></i> SASS/SCSS</span>
-                <span class="skill-badge" style="background:#0891b2;color:#000"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                <span class="skill-badge" style="background:#0891b2;color:#000"><i class="fas fa-wind"></i> Tailwind
+                    CSS</span>
                 <span class="skill-badge" style="background:#7c3aed"><i class="fab fa-bootstrap"></i> Bootstrap</span>
                 <span class="skill-badge" style="background:#60a5fa"><i class="fas fa-database"></i> jQuery</span>
-                <span class="skill-badge" style="background:#0d9488"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                <span class="skill-badge" style="background:#0d9488"><i class="fas fa-mobile-alt"></i> Responsive
+                    Design</span>
                 <span class="skill-badge" style="background:#4f46e5"><i class="fas fa-bolt"></i> Lazy Loading</span>
-                <span class="skill-badge" style="background:#7c3aed"><i class="fas fa-scissors"></i> Code Splitting</span>
+                <span class="skill-badge" style="background:#7c3aed"><i class="fas fa-scissors"></i> Code
+                    Splitting</span>
 
                 <!-- Backend & APIs -->
                 <span class="skill-badge" style="background:#1e40af"><i class="fas fa-plug"></i> RESTful APIs</span>
                 <span class="skill-badge" style="background:#4b5563"><i class="fas fa-file-code"></i> JSON / XML</span>
                 <span class="skill-badge" style="background:#4d7c0f"><i class="fab fa-node-js"></i> NPM / Node.js</span>
-                <span class="skill-badge" style="background:#3730a3"><i class="fas fa-layer-group"></i> MVC Architecture</span>
+                <span class="skill-badge" style="background:#3730a3"><i class="fas fa-layer-group"></i> MVC
+                    Architecture</span>
 
                 <!-- Databases -->
                 <span class="skill-badge" style="background:#ea580c"><i class="fas fa-database"></i> MySQL</span>
@@ -251,42 +284,54 @@
                 <span class="skill-badge" style="background:#854d0e"><i class="fab fa-linux"></i> Linux</span>
 
                 <!-- Security -->
-                <span class="skill-badge" style="background:#1e3a8a"><i class="fas fa-user-secret"></i> Kali Linux</span>
+                <span class="skill-badge" style="background:#1e3a8a"><i class="fas fa-user-secret"></i> Kali
+                    Linux</span>
                 <span class="skill-badge" style="background:#92400e"><i class="fas fa-spider"></i> Burp Suite</span>
                 <span class="skill-badge" style="background:#15803d"><i class="fas fa-network-wired"></i> Nmap</span>
                 <span class="skill-badge" style="background:#991b1b"><i class="fas fa-shield-alt"></i> Metasploit</span>
                 <span class="skill-badge" style="background:#2563eb"><i class="fas fa-wave-square"></i> Wireshark</span>
-                <span class="skill-badge" style="background:#166534"><i class="fas fa-network-wired"></i> Network Scanning</span>
-                <span class="skill-badge" style="background:#78350f"><i class="fas fa-shield-halved"></i> OWASP Top 10</span>
+                <span class="skill-badge" style="background:#166534"><i class="fas fa-network-wired"></i> Network
+                    Scanning</span>
+                <span class="skill-badge" style="background:#78350f"><i class="fas fa-shield-halved"></i> OWASP Top
+                    10</span>
                 <span class="skill-badge" style="background:#7f1d1d"><i class="fas fa-syringe"></i> SQL Injection</span>
                 <span class="skill-badge" style="background:#7c2d12"><i class="fas fa-bug"></i> XSS / CSRF</span>
 
                 <!-- Data & AI -->
                 <span class="skill-badge" style="background:#1e3a8a"><i class="fab fa-python"></i> Pandas</span>
                 <span class="skill-badge" style="background:#312e81"><i class="fab fa-python"></i> NumPy</span>
-                <span class="skill-badge" style="background:#c2410c"><i class="fas fa-robot"></i> Machine Learning</span>
+                <span class="skill-badge" style="background:#c2410c"><i class="fas fa-robot"></i> Machine
+                    Learning</span>
 
                 <!-- Architecture -->
                 <span class="skill-badge" style="background:#6d28d9"><i class="fas fa-cubes"></i> OOP</span>
                 <span class="skill-badge" style="background:#7c3aed"><i class="fas fa-diagram-project"></i> MVVM</span>
-                <span class="skill-badge" style="background:#be185d"><i class="fas fa-code-branch"></i> SOLID Principles</span>
+                <span class="skill-badge" style="background:#be185d"><i class="fas fa-code-branch"></i> SOLID
+                    Principles</span>
                 <span class="skill-badge" style="background:#15803d"><i class="fas fa-brain"></i> Problem Solving</span>
                 <span class="skill-badge" style="background:#0f766e"><i class="fas fa-rotate"></i> Agile / Scrum</span>
-                <span class="skill-badge" style="background:#4f46e5"><i class="fas fa-shapes"></i> Design Patterns</span>
+                <span class="skill-badge" style="background:#4f46e5"><i class="fas fa-shapes"></i> Design
+                    Patterns</span>
                 <span class="skill-badge" style="background:#065f46"><i class="fas fa-broom"></i> Clean Code</span>
-                <span class="skill-badge" style="background:#0e7490"><i class="fas fa-sitemap"></i> Data Structures & Algorithms</span>
+                <span class="skill-badge" style="background:#0e7490"><i class="fas fa-sitemap"></i> Data Structures &
+                    Algorithms</span>
 
                 <!-- Tools -->
                 <span class="skill-badge" style="background:#5b21b6"><i class="fas fa-terminal"></i> VS Code</span>
-                <span class="skill-badge" style="background:#f59e0b;color:#000"><i class="fas fa-vial"></i> Postman</span>
+                <span class="skill-badge" style="background:#f59e0b;color:#000"><i class="fas fa-vial"></i>
+                    Postman</span>
                 <span class="skill-badge" style="background:#db2777"><i class="fab fa-figma"></i> Figma</span>
                 <span class="skill-badge" style="background:#6b7280"><i class="fas fa-n"></i> Notion</span>
-                <span class="skill-badge" style="background:#93c5fd;color:#000"><i class="fas fa-palette"></i> Canva</span>
+                <span class="skill-badge" style="background:#93c5fd;color:#000"><i class="fas fa-palette"></i>
+                    Canva</span>
 
                 <!-- Soft Skills -->
-                <span class="skill-badge" style="background:#134e4a"><i class="fas fa-pen-to-square"></i> Technical Writing</span>
-                <span class="skill-badge" style="background:#4c1d95"><i class="fas fa-magnifying-glass-code"></i> Code Review</span>
-                <span class="skill-badge" style="background:#14532d"><i class="fas fa-chalkboard-user"></i> Mentoring</span>
+                <span class="skill-badge" style="background:#134e4a"><i class="fas fa-pen-to-square"></i> Technical
+                    Writing</span>
+                <span class="skill-badge" style="background:#4c1d95"><i class="fas fa-magnifying-glass-code"></i> Code
+                    Review</span>
+                <span class="skill-badge" style="background:#14532d"><i class="fas fa-chalkboard-user"></i>
+                    Mentoring</span>
                 <span class="skill-badge" style="background:#831843"><i class="fab fa-github"></i> Open Source</span>
             </div>
         </div>
@@ -320,21 +365,24 @@
                         <i class="fab fa-angular text-xl md:text-2xl"></i>
                     </div>
                     <h3 class="text-lg md:text-xl font-semibold mb-2">Angular Development</h3>
-                    <p class="card-desc text-sm md:text-base">Building scalable, reusable components with Angular & TypeScript.</p>
+                    <p class="card-desc text-sm md:text-base">Building scalable, reusable components with Angular &
+                        TypeScript.</p>
                 </div>
                 <div class="feature-card feature-card--blue">
                     <div class="feature-icon feature-icon--blue">
                         <i class="fas fa-database text-xl md:text-2xl"></i>
                     </div>
                     <h3 class="text-lg md:text-xl font-semibold mb-2">Data Engineering</h3>
-                    <p class="card-desc text-sm md:text-base">Exploring data pipelines, processing, and modern data tools.</p>
+                    <p class="card-desc text-sm md:text-base">Exploring data pipelines, processing, and modern data
+                        tools.</p>
                 </div>
                 <div class="feature-card feature-card--green">
                     <div class="feature-icon feature-icon--green">
                         <i class="fas fa-shield-alt text-xl md:text-2xl"></i>
                     </div>
                     <h3 class="text-lg md:text-xl font-semibold mb-2">Cybersecurity</h3>
-                    <p class="card-desc text-sm md:text-base">Learning security concepts and applying them to build safer apps.</p>
+                    <p class="card-desc text-sm md:text-base">Learning security concepts and applying them to build
+                        safer apps.</p>
                 </div>
             </div>
 
@@ -351,7 +399,8 @@
                     <h4 class="info-card__title text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fas fa-briefcase"></i> Experience
                     </h4>
-                    <p class="info-card__body text-sm md:text-base">Angular Frontend Developer – Freelance & Self-Projects
+                    <p class="info-card__body text-sm md:text-base">Angular Frontend Developer – Freelance &
+                        Self-Projects
                         (Jun 2025 – Present)</p>
                 </div>
             </div>
@@ -370,7 +419,8 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 logo-text">My Projects</h2>
                 <p class="section-subtitle max-w-3xl mx-auto text-base sm:text-lg">
-                    A selection of projects I've worked on, showcasing my skills in Angular, JavaScript, and modern web development.
+                    A selection of projects I've worked on, showcasing my skills in Angular, JavaScript, and modern web
+                    development.
                 </p>
             </div>
 
@@ -388,7 +438,9 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">SnovaVerse – VR & Metaverse Company Website</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Modern corporate website for an immersive tech company (VR, Metaverse, AR, AI). Features RTL Arabic/English support, futuristic UI, dynamic hero section, and contact form integration. Fully responsive and performance-optimized.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Modern corporate website for an immersive tech
+                            company (VR, Metaverse, AR, AI). Features RTL Arabic/English support, futuristic UI, dynamic
+                            hero section, and contact form integration. Fully responsive and performance-optimized.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">Angular</span>
                             <span class="tech-tag">TypeScript</span>
@@ -403,17 +455,21 @@
                 </a>
 
                 <!-- Project 2 – Psychology Clinic -->
-                <a href="https://dr-mohamed-essam.vercel.app/home" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://dr-mohamed-essam.vercel.app/home" target="_blank" rel="noopener noreferrer"
+                    class="project-card">
                     <div class="relative">
                         <div class="project-img-wrap">
-                            <img id="psych-slide" src="assets/images/Psychology/(1).jpeg" alt="Psychology Clinic Website"
-                                class="project-img">
+                            <img id="psych-slide" src="assets/images/Psychology/(1).jpeg"
+                                alt="Psychology Clinic Website" class="project-img">
                         </div>
                         <span class="project-badge project-badge--done">Completed</span>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">Psychology Clinic Website</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Patient-focused clinic website with Arabic/English language switcher and dark mode. Includes services, articles, testimonials, session pricing, booking, educational videos, and Facebook post integration. Fully responsive.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Patient-focused clinic website with
+                            Arabic/English language switcher and dark mode. Includes services, articles, testimonials,
+                            session pricing, booking, educational videos, and Facebook post integration. Fully
+                            responsive.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">Angular</span>
                             <span class="tech-tag">TypeScript</span>
@@ -438,7 +494,9 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">GDG AOU Student Management System</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Web-based system to manage student activities across GDG AOU learning tracks. Includes attendance tracking, assignment submission, grading dashboard, supervisor tools, and HR/Super Admin panels with OTP email authentication.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Web-based system to manage student activities
+                            across GDG AOU learning tracks. Includes attendance tracking, assignment submission, grading
+                            dashboard, supervisor tools, and HR/Super Admin panels with OTP email authentication.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">Angular</span>
                             <span class="tech-tag">TypeScript</span>
@@ -453,7 +511,8 @@
                 </a>
 
                 <!-- Project 4 – Grand Egyptian Museum -->
-                <a href="https://github.com/hossam-mohamed-abd/Grand_egyption_musium_new.git" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://github.com/hossam-mohamed-abd/Grand_egyption_musium_new.git" target="_blank"
+                    rel="noopener noreferrer" class="project-card">
                     <div class="relative">
                         <div class="project-img-wrap">
                             <img id="gem-slide" src="assets/images/GEM/1.png" alt="Grand Egyptian Museum Portal"
@@ -463,7 +522,8 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">Grand Egyptian Museum Portal</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Full-stack museum portal with authentication and dynamic content management. Responsive UI with focus on performance and structure.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Full-stack museum portal with authentication
+                            and dynamic content management. Responsive UI with focus on performance and structure.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">MySQL</span>
@@ -478,7 +538,8 @@
                 </a>
 
                 <!-- Project 5 – E-Commerce -->
-                <a href="https://github.com/hossam-mohamed-abd/Ecommerce-Anguler.git" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://github.com/hossam-mohamed-abd/Ecommerce-Anguler.git" target="_blank"
+                    rel="noopener noreferrer" class="project-card">
                     <div class="relative">
                         <div class="project-img-wrap">
                             <img src="assets/images/ecomers/1.png" alt="E-Commerce Web Application" class="project-img">
@@ -487,7 +548,8 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">E-Commerce Web Application</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Responsive e-commerce app with product listing, filtering, shopping cart, and API integration using Angular.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Responsive e-commerce app with product
+                            listing, filtering, shopping cart, and API integration using Angular.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">Angular</span>
                             <span class="tech-tag">TypeScript</span>
@@ -502,7 +564,8 @@
                 </a>
 
                 <!-- Project 6 – AskTrack -->
-                <a href="https://github.com/hossam-mohamed-abd/aiexportnew.git" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://github.com/hossam-mohamed-abd/aiexportnew.git" target="_blank"
+                    rel="noopener noreferrer" class="project-card">
                     <div class="relative">
                         <div class="project-img-wrap">
                             <img id="ask-slide" src="assets/images/askAi/1.png" alt="AskTrack – AI Learning Platform"
@@ -512,7 +575,8 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">AskTrack – AI Learning Platform</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">AI-powered learning platform integrating Qwen AI API for study-focused responses, with Google Sheets API as a lightweight backend.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">AI-powered learning platform integrating Qwen
+                            AI API for study-focused responses, with Google Sheets API as a lightweight backend.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">JavaScript ES6+</span>
                             <span class="tech-tag">HTML5</span>
@@ -527,7 +591,8 @@
                 </a>
 
                 <!-- Project 7 – QUBACX -->
-                <a href="https://github.com/hossam-mohamed-abd/Qubacx.git" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://github.com/hossam-mohamed-abd/Qubacx.git" target="_blank" rel="noopener noreferrer"
+                    class="project-card">
                     <div class="relative">
                         <div class="project-img-wrap">
                             <img id="qubacx-slide" src="assets/images/qubacx/1.png" alt="QUBACX – AI Learning Platform"
@@ -537,7 +602,9 @@
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="project-title mb-2">QUBACX – All-in-One AI Learning Platform</h3>
-                        <p class="project-desc text-sm md:text-base mb-4">Multi-section AI education platform with learning paths, AI advisor interface, and community modules. Focused on UI/UX and responsive design.</p>
+                        <p class="project-desc text-sm md:text-base mb-4">Multi-section AI education platform with
+                            learning paths, AI advisor interface, and community modules. Focused on UI/UX and responsive
+                            design.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
@@ -589,7 +656,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold contact-info-title">Email</h4>
-                                <a href="mailto:hossam.mohamed.abdelhakam@gmail.com" class="contact-info-link break-all">hossam.mohamed.abdelhakam@gmail.com</a>
+                                <a href="mailto:hossam.mohamed.abdelhakam@gmail.com"
+                                    class="contact-info-link break-all">hossam.mohamed.abdelhakam@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -610,10 +678,12 @@
                             <a href="https://github.com/hossam-mohamed-abd" target="_blank" class="contact-social-icon">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" class="contact-social-icon contact-social-icon--linkedin">
+                            <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank"
+                                class="contact-social-icon contact-social-icon--linkedin">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://www.facebook.com/Hossam2512es" target="_blank" class="contact-social-icon contact-social-icon--facebook">
+                            <a href="https://www.facebook.com/Hossam2512es" target="_blank"
+                                class="contact-social-icon contact-social-icon--facebook">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </div>
@@ -626,17 +696,24 @@
                     <form class="space-y-6" action="https://formspree.io/f/mzdavrrz" method="POST">
                         <div>
                             <label class="form-label block mb-2">Name</label>
-                            <input type="text" name="name" class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300" placeholder="Your full name">
+                            <input type="text" name="name"
+                                class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300"
+                                placeholder="Your full name">
                         </div>
                         <div>
                             <label class="form-label block mb-2">Email</label>
-                            <input type="email" name="email" class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300" placeholder="your@email.com">
+                            <input type="email" name="email"
+                                class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300"
+                                placeholder="your@email.com">
                         </div>
                         <div>
                             <label class="form-label block mb-2">Message</label>
-                            <textarea rows="5" name="message" class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300 resize-none" placeholder="Tell me about your project..."></textarea>
+                            <textarea rows="5" name="message"
+                                class="form-input w-full px-4 py-3 rounded-xl transition-all duration-300 resize-none"
+                                placeholder="Tell me about your project..."></textarea>
                         </div>
-                        <button type="submit" class="btn-submit w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300">
+                        <button type="submit"
+                            class="btn-submit w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
@@ -653,7 +730,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="text-center md:text-left">
                     <h3 class="text-2xl font-bold mb-2 logo-text">Hossam Mohamed</h3>
-                    <p class="footer-sub">Angular Frontend Developer • Data Engineering Learner • Cybersecurity Enthusiast</p>
+                    <p class="footer-sub">Angular Frontend Developer • Data Engineering Learner • Cybersecurity
+                        Enthusiast</p>
                 </div>
                 <div class="text-center md:text-right">
                     <p class="footer-copy text-sm">&copy; 2025 Hossam Mohamed. All rights reserved.</p>
@@ -663,7 +741,9 @@
     </footer>
 
     <!-- Back to Top -->
-    <a href="#home" id="backToTop" class="back-to-top fixed bottom-6 right-6 w-10 h-10 flex justify-center items-center rounded-full transition-all duration-300" style="opacity:0;pointer-events:none">
+    <a href="#home" id="backToTop"
+        class="back-to-top fixed bottom-6 right-6 w-10 h-10 flex justify-center items-center rounded-full transition-all duration-300"
+        style="opacity:0;pointer-events:none">
         <i class="fas fa-arrow-up"></i>
     </a>
 
@@ -675,8 +755,8 @@
     <script>
         // ── Theme Toggle ──
         const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon   = document.getElementById('theme-icon');
-        const html        = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
 
         if (localStorage.getItem('theme') === 'light') {
             html.classList.add('light');
@@ -691,8 +771,8 @@
         });
 
         // ── Mobile Menu ──
-        const hamburger   = document.getElementById('hamburger');
-        const mobileMenu  = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
 
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -706,6 +786,7 @@
             });
         });
     </script>
-
+    <script src="js/script.min.js"></script>
 </body>
+
 </html>
