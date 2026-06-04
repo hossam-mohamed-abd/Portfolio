@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!--  PRIMARY SEO  -->
+  <title>Hossam Mohamed | Angular Frontend Developer — Egypt</title>
+  <meta name="description"
+    content="Hossam Mohamed Abd-alhakam — Angular Frontend Developer from Egypt. I build fast, responsive web apps using TypeScript, Tailwind CSS & RESTful APIs. Available for freelance projects.">
+  <meta name="keywords"
+    content="Hossam Mohamed, حسام محمد, حسام محمد عبدالحكم, Angular Developer Egypt, Frontend Developer Egypt, TypeScript Developer, Freelance Web Developer Egypt, Angular Freelancer, Web Developer Fayoum, هوست ويب, مطور واجهات, مطور أنجولار">
+  <meta name="author" content="Hossam Mohamed Abd-alhakam">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hossam-mohamed-abd.github.io/Portfolio/">
+
+  <!--  OPEN GRAPH (Facebook / LinkedIn / WhatsApp)  -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hossam-mohamed-abd.github.io/Portfolio/">
+  <meta property="og:title" content="Hossam Mohamed | Angular Frontend Developer">
+  <meta property="og:description"
+    content="Angular Frontend Developer from Egypt — TypeScript, Tailwind CSS, RESTful APIs. Available for freelance work.">
+  <meta property="og:image" content="https://hossam-mohamed-abd.github.io/Portfolio/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_EG">
+  <meta property="og:site_name" content="Hossam Mohamed Portfolio">
+
+  <!--  TWITTER CARD  -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Hosam545Mohamed">
+  <meta name="twitter:creator" content="@Hosam545Mohamed">
+  <meta name="twitter:title" content="Hossam Mohamed | Angular Frontend Developer">
+  <meta name="twitter:description"
+    content="Angular Frontend Developer from Egypt — TypeScript, Tailwind CSS, RESTful APIs. Available for freelance work.">
+  <meta name="twitter:image" content="https://hossam-mohamed-abd.github.io/Portfolio/assets/images/og-image.png">
+
+  <!--  STRUCTURED DATA — Person + Portfolio  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hossam Mohamed Abd-alhakam",
+    "alternateName": "حسام محمد عبدالحكم",
+    "url": "https://hossam-mohamed-abd.github.io/Portfolio/",
+    "image": "https://hossam-mohamed-abd.github.io/Portfolio/assets/images/me.jpeg",
+    "jobTitle": "Angular Frontend Developer",
+    "description": "Angular Frontend Developer from Egypt specializing in TypeScript, Tailwind CSS, and scalable web applications.",
+    "email": "hossam545mohamed@gmail.com",
+    "telephone": "+201015981677",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fayoum",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://github.com/hossam-mohamed-abd",
+      "https://www.linkedin.com/in/hossam-mohamed-abd/",
+      "https://x.com/Hosam545Mohamed",
+      "https://www.instagram.com/hossam_mohamed_abd"
+    ],
+    "knowsAbout": ["Angular", "TypeScript", "JavaScript", "Tailwind CSS", "PHP", "MySQL", "Docker", "Cybersecurity", "Python"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    }
+  }
+  </script>
+
+  <!--  STRUCTURED DATA — WebSite (enables sitelinks search)  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Hossam Mohamed Portfolio",
+    "url": "https://hossam-mohamed-abd.github.io/Portfolio/",
+    "description": "Portfolio of Hossam Mohamed, Angular Frontend Developer from Egypt"    
+  }
+  </script>
+
+  <!--  FONTS & ICONS  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!--  FAVICON  -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="assets/images/favicon.ico">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <div id="page-transition">
+    <div id="pt-left"></div>
+    <div id="pt-right"></div>
+    <div id="pt-logo">HOME</div>
+  </div>
+
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+  <div id="progress"></div>
+  <canvas id="particles"></canvas>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-s="0">{<span>Hossam</span>}</a>
+      <ul class="nav-links">
+        <li><a data-s="0" class="active">Home</a></li>
+        <li><a data-s="1">About</a></li>
+        <li><a data-s="2">Skills</a></li>
+        <li><a data-s="3">Projects</a></li>
+        <li><a data-s="4">Contact</a></li>
+      </ul>
+      <div class="nav-burger" id="navBurger" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a data-s="0" onclick="mobileNav(0)">Home</a>
+    <a data-s="1" onclick="mobileNav(1)">About</a>
+    <a data-s="2" onclick="mobileNav(2)">Skills</a>
+    <a data-s="3" onclick="mobileNav(3)">Projects</a>
+    <a data-s="4" onclick="mobileNav(4)">Contact</a>
+  </div>
+
+  <div id="dots">
+    <span class="dot active" data-s="0"></span>
+    <span class="dot" data-s="1"></span>
+    <span class="dot" data-s="2"></span>
+    <span class="dot" data-s="3"></span>
+    <span class="dot" data-s="4"></span>
+  </div>
+
+  <div id="sections">
+
+    <!-- HOME -->
+    <div class="section active" id="s-home">
+
+      <div class="glow-blob gb1"></div>
+      <div class="glow-blob gb2"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-tag">Available for work</div>
+          <h1 class="hero-name">I'm <em>Hossam</em><br>Mohamed</h1>
+          <div class="hero-role"><span id="typed"></span><span class="cursor-blink">_</span></div>
+          <p class="hero-desc">Angular Frontend Developer with PHP backend experience, building <strong>responsive,
+              scalable</strong> applications with TypeScript. Exploring Data Engineering &amp; Cybersecurity.</p>
+          <div class="hero-actions">
+            <a href="assets/Hossam_CV_v2.pdf" download class="btn btn-primary"><i class="fas fa-arrow-down"></i>
+              Download CV</a>
+            <a href="#" class="btn" data-s="4"><i class="fas fa-paper-plane"></i> Let's Talk</a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/hossam-mohamed-abd" target="_blank" class="soc"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" class="soc"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/hossam2512es" target="_blank" class="soc"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/Hosam545Mohamed" target="_blank" class="soc"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/hossam_mohamed_abd" target="_blank" class="soc"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <canvas id="heroCanvas"></canvas>
+        </div>
+      </div>
+      <div class="scroll-hint"><i class="fas fa-chevron-down"></i>scroll</div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section" id="s-about">
+      <div class="glow-blob gb3"></div>
+      <div class="wrap">
+        <div class="about-wrap">
+          <div class="about-visual-col" style="position:relative;">
+            <div class="about-img-frame">
+              <img src="assets/images/me.jpeg" alt="Hossam Mohamed"
+                onerror="this.parentNode.style.background='linear-gradient(160deg,#0d0d20,#1a0a2e)';this.remove()">
+            </div>
+            <div class="about-badge"><span class="num">3+</span><span class="lbl">Years Coding</span></div>
+          </div>
+          <div>
+            <div class="s-tag">About Me</div>
+            <h2 class="s-title">Angular <em>Frontend</em><br>Developer</h2>
+            <p style="font-size:.88rem;line-height:1.9;color:var(--muted);margin-top:.7rem;">
+              Hi — I'm <strong style="color:var(--white)">Hossam Mohamed Abd-alhakam</strong>, an Angular developer from
+              Egypt, currently in my 3rd year at Cairo Higher Institute for Engineering and Computer Science. I build
+              responsive, scalable applications that marry clean architecture with compelling design. Beyond frontend, I
+              explore <span style="color:var(--v3)">Data Engineering</span> and <span
+                style="color:var(--cyan)">Cybersecurity</span>.
+            </p>
+            <div class="info-rows">
+              <div class="info-row"><i class="fas fa-graduation-cap"></i><span><strong>Education:</strong> B.Sc.
+                  Computer Science — Cairo Higher Institute (3rd Year)</span></div>
+              <div class="info-row"><i class="fas fa-briefcase"></i><span><strong>Role:</strong> Angular Frontend
+                  Developer — Freelance &amp; Self-Projects</span></div>
+              <div class="info-row"><i class="fas fa-map-marker-alt"></i><span><strong>Location:</strong> Egypt,
+                  Fayoum</span></div>
+              <div class="info-row"><i class="fas fa-envelope"></i><a
+                  href="mailto:hossam545mohamed@gmail.com">hossam545mohamed@gmail.com</a></div>
+            </div>
+            <div class="pills">
+              <span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">RxJS</span>
+              <span class="pill">Tailwind CSS</span><span class="pill">RESTful APIs</span><span class="pill">PHP</span>
+              <span class="pill">MySQL</span><span class="pill">Cybersecurity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section" id="s-skills">
+      <div class="wrap">
+        <div class="skills-head">
+          <div>
+            <div class="s-tag">Tech Stack</div>
+            <h2 class="s-title">Skills &amp;<br><em>Expertise</em></h2>
+          </div>
+          <div class="skills-note">Technologies and tools I use to build modern, secure web applications — from
+            responsive frontends to cloud deployments and data pipelines. Every project is an opportunity to learn
+            something new.</div>
+        </div>
+        <div class="skill-grid">
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fab fa-angular"></i></div>
+            <h4>Frontend Core</h4>
+            <div class="st-list"><span class="st">Angular</span><span class="st">TypeScript</span><span
+                class="st">JavaScript ES6+</span><span class="st">RxJS</span><span class="st">HTML5</span><span
+                class="st">CSS3</span><span class="st">SCSS/Sass</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-paint-brush"></i></div>
+            <h4>UI &amp; Styling</h4>
+            <div class="st-list"><span class="st">Tailwind CSS</span><span class="st">Bootstrap</span><span
+                class="st">Responsive</span><span class="st">RTL Support</span><span class="st">Dark Mode</span><span
+                class="st">Figma</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-server"></i></div>
+            <h4>Backend &amp; APIs</h4>
+            <div class="st-list"><span class="st">PHP</span><span class="st">MySQL</span><span
+                class="st">MVC</span><span class="st">RESTful APIs</span><span class="st">HTTPClient</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>Cybersecurity</h4>
+            <div class="st-list"><span class="st">Web Security</span><span class="st">OWASP Top 10</span><span
+                class="st">XSS/CSRF</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fab fa-docker"></i></div>
+            <h4>Cloud &amp; DevOps</h4>
+            <div class="st-list"><span class="st">Git</span><span class="st">GitHub</span><span
+                class="st">Docker</span><span class="st">Linux</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-brain"></i></div>
+            <h4>Data &amp; ML</h4>
+            <div class="st-list"><span class="st">Python</span><span class="st">Google Sheets API</span><span
+                class="st">Qwen AI API</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-code"></i></div>
+            <h4>Languages</h4>
+            <div class="st-list"><span class="st">Python</span><span class="st">JavaScript</span><span
+                class="st">PHP</span><span class="st">SQL</span></div>
+          </div>
+          <div class="skill-block">
+            <div class="sb-icon"><i class="fas fa-cogs"></i></div>
+            <h4>Methodologies</h4>
+            <div class="st-list"><span class="st">Component-Based</span><span class="st">Agile</span><span
+                class="st">Jasmine/Karma</span><span class="st">Clean Code</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section" id="s-projects">
+      <div class="wrap projects-inner">
+        <div class="projects-header">
+          <div>
+            <div class="s-tag">Featured Work</div>
+            <h2 class="s-title">Selected <em>Projects</em></h2>
+          </div>
+          <div class="projects-header-right">6 projects &nbsp;·&nbsp; Angular / PHP / AI</div>
+        </div>
+        <div class="fan-stage" id="fanStage">
+          <canvas class="wheel-ring" id="wheelRing" width="320" height="320"></canvas>
+          <button class="fan-cta" id="fanCta" onclick="openProjModal()">
+            <i class="fas fa-th-large" style="margin-right:.5rem;font-size:.82rem;vertical-align:middle;"></i>View
+            Portfolio
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS MODAL -->
+    <div id="proj-modal">
+      <div id="proj-modal-backdrop" onclick="closeProjModal()"></div>
+      <div id="proj-modal-sheet">
+        <div id="proj-modal-header">
+          <div>
+            <div class="pm-title">Selected <em>Projects</em></div>
+            <div class="pm-count">6 projects · Angular / PHP / AI</div>
+          </div>
+          <button class="pm-close" onclick="closeProjModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="proj-modal-body"></div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="s-contact">
+      <div class="glow-blob gb1" style="opacity:.07;top:auto;bottom:-100px;right:-180px;"></div>
+      <div class="wrap">
+        <div class="contact-wrap">
+          <div>
+            <div class="s-tag">Get In Touch</div>
+            <div class="contact-big">Let's<br>work <em>together</em><br>on <span class="hl">something</span><br>great.
+            </div>
+            <p class="contact-note">Have a project in mind or just want to say hello? I respond within 24 hours.</p>
+            <div class="c-links">
+              <a href="mailto:hossam545mohamed@gmail.com" class="c-link"><i
+                  class="fas fa-envelope"></i><span>hossam545mohamed@gmail.com</span></a>
+              <a href="tel:+201015981677" class="c-link"><i class="fas fa-phone"></i><span>+20 (10) 15981677</span></a>
+              <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" class="c-link"><i
+                  class="fab fa-linkedin-in"></i><span>linkedin.com/in/hossam-mohamed-abd</span></a>
+              <a href="https://github.com/hossam-mohamed-abd" target="_blank" class="c-link"><i
+                  class="fab fa-github"></i><span>github.com/hossam-mohamed-abd</span></a>
+            </div>
+          </div>
+          <div>
+            <form class="contact-form" action="https://formspree.io/f/mzdavrrz" method="POST">
+              <div class="ff"><label>Full Name</label><input type="text" name="name" placeholder="Your full name"></div>
+              <div class="ff"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com">
+              </div>
+              <div class="ff"><label>Subject</label><input type="text" name="subject"
+                  placeholder="Project / Collaboration / Hello"></div>
+              <div class="ff"><label>Message</label><textarea name="message"
+                  placeholder="Tell me about your project..."></textarea></div>
+              <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sections -->
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item"><i class="fab fa-angular"></i>Angular</span>
+      <span class="ticker-item"><i class="fab fa-js-square"></i>TypeScript</span>
+      <span class="ticker-item"><i class="fas fa-wind"></i>Tailwind CSS</span>
+      <span class="ticker-item"><i class="fas fa-code-branch"></i>RxJS</span>
+      <span class="ticker-item"><i class="fab fa-python"></i>Python</span>
+      <span class="ticker-item"><i class="fas fa-shield-alt"></i>Cybersecurity</span>
+      <span class="ticker-item"><i class="fab fa-docker"></i>Docker</span>
+      <span class="ticker-item"><i class="fab fa-git-alt"></i>Git</span>
+      <span class="ticker-item"><i class="fas fa-database"></i>MySQL</span>
+      <span class="ticker-item"><i class="fas fa-brain"></i>Machine Learning</span>
+      <span class="ticker-item"><i class="fab fa-angular"></i>Angular</span>
+      <span class="ticker-item"><i class="fab fa-js-square"></i>TypeScript</span>
+      <span class="ticker-item"><i class="fas fa-wind"></i>Tailwind CSS</span>
+      <span class="ticker-item"><i class="fas fa-code-branch"></i>RxJS</span>
+      <span class="ticker-item"><i class="fab fa-python"></i>Python</span>
+      <span class="ticker-item"><i class="fas fa-shield-alt"></i>Cybersecurity</span>
+      <span class="ticker-item"><i class="fab fa-docker"></i>Docker</span>
+      <span class="ticker-item"><i class="fab fa-git-alt"></i>Git</span>
+      <span class="ticker-item"><i class="fas fa-database"></i>MySQL</span>
+      <span class="ticker-item"><i class="fas fa-brain"></i>Machine Learning</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>Designed &amp; built by <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank"><span>Hossam
+          Mohamed</span></a></p>
+    <p>Angular Frontend Developer &nbsp;·&nbsp; © 2025</p>
+  </footer>
+  <div id="btt"><i class="fas fa-arrow-up"></i></div>
+
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>

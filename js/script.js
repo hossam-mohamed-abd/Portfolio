@@ -74,7 +74,7 @@ new Typed("#typed-text", {
 
 // GEM Slider
 
-const gemImages = Array.from({ length: 7 }, (_, i) => `assets/images/GEM/${i + 1}.png`);
+const gemImages = Array.from({ length: 7 }, (_, i) => `../assets/images/GEM/${i + 1}.png`);
 let gemIndex = 0;
 const gemSlide = document.getElementById('gem-slide');
 
@@ -89,7 +89,7 @@ setInterval(() => {
 
 
 // AskTrack Slider
-const askImages = Array.from({ length: 4 }, (_, i) => `assets/images/askAi/${i + 1}.png`);
+const askImages = Array.from({ length: 4 }, (_, i) => `../assets/images/askAi/${i + 1}.png`);
 let askIndex = 0;
 const askSlide = document.getElementById('ask-slide');
 setInterval(() => {
@@ -102,7 +102,7 @@ setInterval(() => {
 }, 2000);
 
 // QUBACX Slider
-const qubacxImages = Array.from({ length: 2 }, (_, i) => `assets/images/qubacx/${i + 1}.png`);
+const qubacxImages = Array.from({ length: 2 }, (_, i) => `../assets/images/qubacx/${i + 1}.png`);
 let qubacxIndex = 0;
 const qubacxSlide = document.getElementById('qubacx-slide');
 setInterval(() => {
@@ -121,7 +121,7 @@ setInterval(() => {
 
 
 // SnovaVerse Slider
-const snovaImages = Array.from({ length: 11 }, (_, i) => `assets/images/SnovaVerse/${i + 1}.jpeg`);
+const snovaImages = Array.from({ length: 11 }, (_, i) => `../assets/images/SnovaVerse/${i + 1}.jpeg`);
 let snovaIndex = 0;
 const snovaSlide = document.getElementById('snova-slide');
 setInterval(() => {
@@ -134,7 +134,7 @@ setInterval(() => {
 }, 2000);
 
 // Psychology Slider
-const psychImages = Array.from({ length: 14 }, (_, i) => `assets/images/Psychology/(${i + 1}).jpeg`);
+const psychImages = Array.from({ length: 14 }, (_, i) => `../assets/images/Psychology/(${i + 1}).jpeg`);
 let psychIndex = 0;
 const psychSlide = document.getElementById('psych-slide');
 setInterval(() => {
@@ -147,7 +147,7 @@ setInterval(() => {
 }, 3000);
 
 // GDG AOU Slider
-const gdgImages = Array.from({ length: 9 }, (_, i) => `assets/images/GDG/(${i + 1}).jpeg`);
+const gdgImages = Array.from({ length: 9 }, (_, i) => `../assets/images/GDG/(${i + 1}).jpeg`);
 let gdgIndex = 0;
 const gdgSlide = document.getElementById('gdg-slide');
 setInterval(() => {
