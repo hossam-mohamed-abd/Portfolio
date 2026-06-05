@@ -1,3 +1,9 @@
+
+document.querySelectorAll('*').forEach(el => {
+    if (el.offsetWidth > document.documentElement.offsetWidth) {
+        console.log(el, el.offsetWidth);
+    }
+});
 /*  CINEMATIC HERO CANVAS  */
 (function () {
     const cv = document.getElementById('heroCanvas');
@@ -834,6 +840,8 @@ function updateUI() {
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', +a.dataset.s === CUR));
     document.querySelectorAll('.nav-mobile-menu a').forEach(a => a.classList.toggle('active', +a.dataset.s === CUR));
     document.getElementById('btt').classList.toggle('show', CUR > 0);
+    const ticker = document.querySelector('.ticker-wrap');
+    if (ticker) ticker.style.display = (CUR === SIDS.length - 1) ? 'none' : '';
 }
 
 document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => navigate(+d.dataset.s)));

@@ -353,7 +353,9 @@
     #sections {
         position: fixed;
         inset: 0;
-        overflow: hidden
+        overflow: hidden;
+        max-width: 100vw;
+
     }
 
     .section {
@@ -411,12 +413,13 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        right: 0;
+        width: 100%;
+        max-width: 100%;
         background: rgba(242, 237, 228, .97);
         border-top: 1px solid var(--border);
         overflow: hidden;
         padding: .65rem 0;
-        z-index: 700
+        z-index: 700;
     }
 
     .ticker-track {
@@ -1170,7 +1173,7 @@
         border: none;
         letter-spacing: .01em;
         pointer-events: all;
-        left: 50%;
+        left: calc(50% + 30px);
         top: 50%;
         transform: translate(-50%, -50%)
     }
@@ -1745,17 +1748,18 @@
         left: 0;
         right: 0;
         z-index: 699;
-        background: rgba(250, 247, 242, .93);
+        background: rgba(250, 247, 242, .97);
         backdrop-filter: blur(16px);
-        border-top: 1px solid var(--border);
-        padding: .75rem 2rem;
+        border-top: 2px solid var(--v3);
+        padding: 1rem 2rem;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 2rem;
         font-family: var(--ff-mono);
-        font-size: .62rem;
-        color: var(--faint);
-        letter-spacing: .08em
+        font-size: .75rem;
+        color: var(--muted);
+        letter-spacing: .08em;
     }
 
     footer span {
@@ -1777,7 +1781,10 @@
             flex-direction: column;
             gap: .3rem;
             text-align: center;
-            padding: .6rem 1rem
+            padding: .7rem 1rem;
+            font-size: .7rem;
+            overflow: hidden;
+            word-break: break-word;
         }
     }
 
@@ -1916,7 +1923,9 @@
 
     html,
     body {
-        overflow-x: hidden
+        overflow-x: hidden;
+        max-width: 100%;
+        position: relative;
     }
 
 
