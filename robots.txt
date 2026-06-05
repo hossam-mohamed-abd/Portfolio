@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hossam-mohamed-abd.github.io/Portfolio/sitemap.xml

@@ -1,80 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | Hossam Mohamed</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        body { background: #000; }
-        .glow { box-shadow: 0 0 40px rgba(139, 92, 246, 0.3); }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .float { animation: float 3s ease-in-out infinite; }
+
+        :root {
+            --bg: #faf7f2;
+            --surface: #f2ede4;
+            --s2: #ebe4d8;
+            --v: #4f46e5;
+            --v2: #6366f1;
+            --v3: #4338ca;
+            --cyan: #b45309;
+            --white: #1c1917;
+            --muted: #57534e;
+            --faint: #a8a29e;
+            --border: rgba(79, 70, 229, .13);
+            --glow: rgba(79, 70, 229, .18);
+            --ff-display: 'Playfair Display', Georgia, serif;
+            --ff-body: 'DM Sans', sans-serif;
+            --ff-mono: 'DM Mono', monospace;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: var(--ff-body);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── NOISE OVERLAY ── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: .012;
+            pointer-events: none;
+            z-index: 9000;
+        }
+
+        /* ── PARTICLES ── */
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ── GRID CANVAS ── */
+        #gridCanvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .5;
+        }
+
+        /* ── GLOW BLOBS ── */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--v);
+            opacity: .07;
+            top: -120px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 380px;
+            height: 380px;
+            background: var(--cyan);
+            opacity: .06;
+            bottom: -80px;
+            left: -100px;
+        }
+
+        /* ── PROGRESS BAR ── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--v), var(--cyan));
+            box-shadow: 0 0 10px var(--glow);
+            z-index: 100;
+            width: 0%;
+            transition: width .1s linear;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 80;
+            padding: 1.2rem 2rem;
+            background: rgba(250, 247, 242, .93);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--ff-mono);
+            font-size: .78rem;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: .12em;
+        }
+
+        .nav-logo span {
+            color: var(--v3);
+        }
+
+        .nav-back {
+            font-family: var(--ff-mono);
+            font-size: .68rem;
+            letter-spacing: .14em;
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            transition: color .3s;
+        }
+
+        .nav-back:hover {
+            color: var(--v3);
+        }
+
+        /* ── MAIN LAYOUT ── */
+        main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 2rem 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            max-width: 680px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        /* corner brackets */
+        .card::before,
+        .card::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: var(--v3);
+            border-style: solid;
+            z-index: 3;
+        }
+
+        .card::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .card::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* ── LEFT COL ── */
+        .card-left {
+            padding: 3rem 2rem;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            background: var(--bg);
+            position: relative;
+        }
+
+        /* photo frame */
+        .photo-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            position: relative;
+            box-shadow: 0 0 0 6px rgba(79, 70, 229, .06), 0 8px 32px rgba(0, 0, 0, .1);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(15%);
+            transition: filter .5s;
+        }
+
+        .photo-frame:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* pulse ring */
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 1px dashed rgba(79, 70, 229, .25);
+            animation: spin 12s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .status-dot {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--ff-mono);
+            font-size: .6rem;
+            letter-spacing: .15em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .dot-green {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .6;
+                transform: scale(1.3);
+            }
+        }
+
+        .name-tag {
+            text-align: center;
+        }
+
+        .name-tag strong {
+            font-family: var(--ff-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+        }
+
+        .name-tag span {
+            font-family: var(--ff-mono);
+            font-size: .58rem;
+            letter-spacing: .1em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* socials */
+        .socials {
+            display: flex;
+            gap: .4rem;
+        }
+
+        .soc {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: .68rem;
+            text-decoration: none;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .soc::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--v);
+            transform: scale(0);
+            border-radius: 50%;
+            transition: transform .3s;
+        }
+
+        .soc i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .soc:hover::before {
+            transform: scale(1);
+        }
+
+        .soc:hover {
+            color: #fff;
+            border-color: var(--v);
+        }
+
+        /* ── RIGHT COL ── */
+        .card-right {
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.4rem;
+        }
+
+        .s-tag {
+            font-family: var(--ff-mono);
+            font-size: .62rem;
+            letter-spacing: .22em;
+            color: var(--v3);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+        }
+
+        .s-tag::before {
+            content: '';
+            width: 14px;
+            height: 1px;
+            background: var(--v3);
+        }
+
+        .card-title {
+            font-family: var(--ff-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -.03em;
+        }
+
+        .card-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--v3);
+        }
+
+        .card-desc {
+            font-size: .84rem;
+            line-height: 1.88;
+            color: var(--muted);
+            border-left: 1px solid var(--border);
+            padding-left: 1rem;
+        }
+
+        /* checkmarks */
+        .checks {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .check-row {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-family: var(--ff-mono);
+            font-size: .62rem;
+            letter-spacing: .06em;
+            color: var(--muted);
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateX(12px);
+        }
+
+        .check-row i {
+            color: var(--v3);
+            font-size: .7rem;
+        }
+
+        /* CTA */
+        .cta-row {
+            display: flex;
+            gap: .6rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .65rem 1.3rem;
+            font-family: var(--ff-mono);
+            font-size: .65rem;
+            letter-spacing: .1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all .32s;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: var(--v);
+            border-color: var(--v);
+            color: #fff;
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .btn-primary {
+            background: rgba(79, 70, 229, .15);
+            border-color: rgba(99, 102, 241, .3);
+        }
+
+        /* counter */
+        .counter {
+            font-family: var(--ff-mono);
+            font-size: .58rem;
+            letter-spacing: .1em;
+            color: var(--faint);
+            margin-top: .4rem;
+        }
+
+        .counter span {
+            color: var(--v3);
+        }
+
+        /* ── TICKER ── */
+        .ticker-wrap {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(242, 237, 228, .97);
+            border-top: 1px solid var(--border);
+            overflow: hidden;
+            padding: .65rem 0;
+            z-index: 70;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker 28s linear infinite;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: 0 1.6rem;
+            font-family: var(--ff-mono);
+            font-size: .65rem;
+            letter-spacing: .08em;
+            color: var(--muted);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .ticker-item i {
+            color: var(--v3);
+            font-size: .7rem;
+        }
+
+        /* ── SCANLINE ── */
+        #scanline {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(79, 70, 229, .08), transparent);
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        @media(max-width: 600px) {
+            .card {
+                grid-template-columns: 1fr;
+            }
+
+            .card-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 2rem 1.5rem;
+            }
+
+            .card-right {
+                padding: 2rem 1.5rem;
+            }
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex items-center justify-center px-4">
 
-    <!-- Stars Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute w-1 h-1 bg-white rounded-full opacity-70" style="top:10%; left:20%;"></div>
-        <div class="absolute w-1 h-1 bg-white rounded-full opacity-50" style="top:25%; left:75%;"></div>
-        <div class="absolute w-1 h-1 bg-purple-400 rounded-full opacity-60" style="top:60%; left:10%;"></div>
-        <div class="absolute w-1 h-1 bg-white rounded-full opacity-40" style="top:80%; left:85%;"></div>
-        <div class="absolute w-1 h-1 bg-blue-400 rounded-full opacity-60" style="top:40%; left:50%;"></div>
-        <div class="absolute w-2 h-2 bg-purple-500 rounded-full opacity-30" style="top:15%; left:60%;"></div>
-        <div class="absolute w-1 h-1 bg-white rounded-full opacity-50" style="top:70%; left:40%;"></div>
-    </div>
+<body>
 
-    <div id="card" class="relative text-center max-w-lg w-full p-10 rounded-3xl bg-gradient-to-br from-purple-600/10 to-blue-900/10 border border-purple-500/20 glow">
+    <div id="progress-bar"></div>
+    <div id="scanline"></div>
+    <canvas id="particles"></canvas>
+    <canvas id="gridCanvas"></canvas>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-        <!-- Icon -->
-        <div class="float mb-6 inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 shadow-lg shadow-purple-900/50">
-            <i class="fas fa-paper-plane text-4xl text-white"></i>
+    <nav>
+        <a href="index.html" class="nav-logo">{<span>Hossam</span>}</a>
+        <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+    </nav>
+
+    <main>
+        <div class="card" id="card">
+
+            <!-- LEFT -->
+            <div class="card-left">
+                <div class="photo-frame">
+                    <img src="assets/images/me.jpeg" alt="Hossam Mohamed"
+                        onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(160deg,#e8e2d8,#d4ccc0)'">
+                </div>
+                <div class="status-dot">
+                    <div class="dot-green"></div>
+                    <span>Message received</span>
+                </div>
+                <div class="name-tag">
+                    <strong>Hossam Mohamed</strong>
+                    <span>Angular Frontend Developer</span>
+                </div>
+                <div class="socials">
+                    <a href="https://github.com/hossam-mohamed-abd" target="_blank" class="soc"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank" class="soc"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/Hosam545Mohamed" target="_blank" class="soc"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/hossam_mohamed_abd" target="_blank" class="soc"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="card-right">
+                <div class="s-tag">Confirmation</div>
+                <h1 class="card-title">Message<br><em>Sent.</em></h1>
+                <p class="card-desc">Your message landed safely. I personally read every message and reply within 24
+                    hours.</p>
+
+                <div class="checks">
+                    <div class="check-row"><i class="fas fa-check"></i> Message delivered</div>
+                    <div class="check-row"><i class="fas fa-check"></i> Reply within 24h</div>
+                    <div class="check-row"><i class="fas fa-check"></i> Available for projects</div>
+                </div>
+
+                <div class="cta-row">
+                    <a href="index.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+                    <a href="mailto:hossam545mohamed@gmail.com" class="btn"><i class="fas fa-envelope"></i> Direct
+                        email</a>
+                </div>
+
+                <div class="counter">Session — <span id="elapsed">00:00</span> &nbsp;·&nbsp; <span id="date"></span>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <!-- Text -->
-        <h1 class="text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Thank You!
-        </h1>
-        <p class="text-gray-300 text-lg mb-2">Your message has been received 🎉</p>
-        <p class="text-gray-500 text-sm mb-8">I'll get back to you as soon as possible. I appreciate you reaching out!</p>
-
-        <!-- Divider -->
-        <div class="w-16 h-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full mx-auto mb-8"></div>
-
-        <!-- Social -->
-        <p class="text-gray-400 text-sm mb-4">Meanwhile, feel free to connect with me</p>
-        <div class="flex justify-center gap-4 mb-8">
-            <a href="https://github.com/hossam-mohamed-abd" target="_blank"
-                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-purple-600/30 transition transform hover:scale-110">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/hossam-mohamed-abd/" target="_blank"
-                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-blue-600/30 transition transform hover:scale-110">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.facebook.com/Hossam2512es" target="_blank"
-                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-blue-500/30 transition transform hover:scale-110">
-                <i class="fab fa-facebook"></i>
-            </a>
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            <span class="ticker-item"><i class="fab fa-angular"></i>Angular</span>
+            <span class="ticker-item"><i class="fab fa-js-square"></i>TypeScript</span>
+            <span class="ticker-item"><i class="fas fa-wind"></i>Tailwind CSS</span>
+            <span class="ticker-item"><i class="fas fa-code-branch"></i>RxJS</span>
+            <span class="ticker-item"><i class="fab fa-python"></i>Python</span>
+            <span class="ticker-item"><i class="fas fa-shield-alt"></i>Cybersecurity</span>
+            <span class="ticker-item"><i class="fab fa-docker"></i>Docker</span>
+            <span class="ticker-item"><i class="fab fa-git-alt"></i>Git</span>
+            <span class="ticker-item"><i class="fas fa-database"></i>MySQL</span>
+            <span class="ticker-item"><i class="fas fa-brain"></i>Machine Learning</span>
+            <span class="ticker-item"><i class="fab fa-angular"></i>Angular</span>
+            <span class="ticker-item"><i class="fab fa-js-square"></i>TypeScript</span>
+            <span class="ticker-item"><i class="fas fa-wind"></i>Tailwind CSS</span>
+            <span class="ticker-item"><i class="fas fa-code-branch"></i>RxJS</span>
+            <span class="ticker-item"><i class="fab fa-python"></i>Python</span>
+            <span class="ticker-item"><i class="fas fa-shield-alt"></i>Cybersecurity</span>
+            <span class="ticker-item"><i class="fab fa-docker"></i>Docker</span>
+            <span class="ticker-item"><i class="fab fa-git-alt"></i>Git</span>
+            <span class="ticker-item"><i class="fas fa-database"></i>MySQL</span>
+            <span class="ticker-item"><i class="fas fa-brain"></i>Machine Learning</span>
         </div>
-
-        <!-- Back Button -->
-        <a href="index.html"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold hover:opacity-90 hover:scale-105 transform transition shadow-lg shadow-purple-900/40">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
-        </a>
-
     </div>
 
     <script>
-        gsap.from("#card", { opacity: 0, y: 60, duration: 1, ease: "power3.out" });
-    </script>
+        /* ── PARTICLES ── */
+        const cvs = document.getElementById('particles');
+        const ctx2 = cvs.getContext('2d');
+        let PW, PH, pts = [];
+        function resizeCvs() { PW = cvs.width = innerWidth; PH = cvs.height = innerHeight; }
+        resizeCvs();
+        window.addEventListener('resize', resizeCvs);
+        function mkP() { return { x: Math.random() * PW, y: Math.random() * PH, vx: (Math.random() - .5) * .2, vy: (Math.random() - .5) * .2, r: Math.random() * 1.1 + .3, a: Math.random() * .35 + .06, hue: Math.random() < .6 ? 245 : 32 }; }
+        for (let i = 0; i < 70; i++) pts.push(mkP());
+        function drawP() {
+            ctx2.clearRect(0, 0, PW, PH);
+            pts.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = PW; if (p.x > PW) p.x = 0;
+                if (p.y < 0) p.y = PH; if (p.y > PH) p.y = 0;
+                ctx2.beginPath(); ctx2.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx2.fillStyle = `hsla(${p.hue},55%,45%,${p.a})`; ctx2.fill();
+            });
+            for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+                const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.sqrt(dx * dx + dy * dy);
+                if (d < 100) {
+                    ctx2.beginPath(); ctx2.moveTo(pts[i].x, pts[i].y); ctx2.lineTo(pts[j].x, pts[j].y);
+                    ctx2.strokeStyle = `hsla(245,50%,45%,${.07 * (1 - d / 100)})`; ctx2.lineWidth = .4; ctx2.stroke();
+                }
+            }
+            requestAnimationFrame(drawP);
+        }
+        drawP();
 
+        /* ── GRID ── */
+        const gc = document.getElementById('gridCanvas');
+        const gctx = gc.getContext('2d');
+        let GW, GH, gOff = 0;
+        function resizeGrid() { GW = gc.width = innerWidth; GH = gc.height = innerHeight; }
+        resizeGrid(); window.addEventListener('resize', resizeGrid);
+        function drawGrid(ts) {
+            gOff = (ts * 0.006) % 40;
+            gctx.clearRect(0, 0, GW, GH);
+            gctx.strokeStyle = 'rgba(79,70,229,0.055)';
+            gctx.lineWidth = 0.5;
+            for (let x = (gOff % 40) - 40; x < GW + 40; x += 40) { gctx.beginPath(); gctx.moveTo(x, 0); gctx.lineTo(x, GH); gctx.stroke(); }
+            for (let y = (gOff % 40) - 40; y < GH + 40; y += 40) { gctx.beginPath(); gctx.moveTo(0, y); gctx.lineTo(GW, y); gctx.stroke(); }
+            requestAnimationFrame(drawGrid);
+        }
+        requestAnimationFrame(drawGrid);
+
+        /* ── SCANLINE ── */
+        const sl = document.getElementById('scanline');
+        let slY = 0;
+        function moveScan() { slY = (slY + 0.5) % innerHeight; sl.style.top = slY + 'px'; requestAnimationFrame(moveScan); }
+        moveScan();
+
+        /* ── PROGRESS BAR ── */
+        const pb = document.getElementById('progress-bar');
+        let prog = 0;
+        const progInt = setInterval(() => {
+            prog = Math.min(prog + Math.random() * 18, 95);
+            pb.style.width = prog + '%';
+            if (prog >= 95) { clearInterval(progInt); setTimeout(() => { pb.style.width = '100%'; setTimeout(() => pb.style.opacity = '0', 300); }, 200); }
+        }, 80);
+
+        /* ── GSAP ENTRANCE ── */
+        const tl = gsap.timeline({ delay: .1 });
+        tl.to('#card', { opacity: 1, duration: 0 })
+            .from('#card', { y: 40, duration: .7, ease: 'power3.out' })
+            .from('.card-left .photo-frame', { scale: .7, opacity: 0, duration: .6, ease: 'back.out(1.7)' }, '-=.4')
+            .from('.card-left .status-dot', { y: 10, opacity: 0, duration: .4, ease: 'power3.out' }, '-=.2')
+            .from('.card-left .name-tag', { y: 10, opacity: 0, duration: .4, ease: 'power3.out' }, '-=.25')
+            .from('.card-left .socials', { y: 10, opacity: 0, duration: .4, ease: 'power3.out' }, '-=.2')
+            .from('.s-tag', { x: -20, opacity: 0, duration: .4, ease: 'power3.out' }, '-=.3')
+            .from('.card-title', { y: 24, opacity: 0, duration: .55, ease: 'power3.out' }, '-=.25')
+            .from('.card-desc', { x: 20, opacity: 0, duration: .45, ease: 'power3.out' }, '-=.3')
+            .to('.check-row', { opacity: 1, x: 0, duration: .38, stagger: .12, ease: 'power3.out' }, '-=.15')
+            .from('.cta-row', { y: 14, opacity: 0, duration: .4, ease: 'power3.out' }, '-=.1')
+            .from('.counter', { opacity: 0, duration: .4 }, '-=.1');
+
+        /* ── ELAPSED TIMER ── */
+        const start = Date.now();
+        const elEl = document.getElementById('elapsed');
+        setInterval(() => {
+            const s = Math.floor((Date.now() - start) / 1000);
+            const m = Math.floor(s / 60);
+            elEl.textContent = `${String(m).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+        }, 1000);
+
+        /* ── DATE ── */
+        document.getElementById('date').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    </script>
 </body>
+
 </html>

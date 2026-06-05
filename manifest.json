@@ -1,0 +1,17 @@
+{
+  "name": "Hossam Mohamed Portfolio",
+  "short_name": "Hossam",
+  "description": "Angular Frontend Developer from Egypt",
+  "start_url": "/Portfolio/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#4f46e5",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/images/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
